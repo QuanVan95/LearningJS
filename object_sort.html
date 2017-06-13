@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+    <body>
+       <script type="text/javascript">
+  		var Student = {
+  			data : [],
+  			addStudent : function(name,age,gender){
+  				var item = {
+  					name : name,
+  					age : age,
+  					gender : gender
+  				};
+  				this.data.push(item);
+  			},
+
+  			viewStudent : function(){
+  				var listStudent = this.data; //Lấy DS sinh viên
+  				for(var i = 0 ; i < listStudent.length;i++){
+  					document.write("<div>"+listStudent[i].name + " | " + listStudent[i].age + " | " + listStudent[i].gender + "</div>");
+  				}
+  			},
+
+  			removeStudent : function(name){
+  				for( var i = 0 ; i< this.data.length; i++){
+  					if(this.data[i].name===name)
+  					{
+  						this.data.splice(i,1); //xóa
+  					}
+  				}
+  			},
+
+  			editStudent : function (name,age,gender){
+  				for(var i = 0 ; i<this.data.length;i++)
+  				{
+  					if(this.data[i].name===name){
+  						this.data[i].age = age;
+  						this.data[i].gender = gender; 
+  					}
+  				}
+  			},
+  			countMale : function(){
+  				var count = 0;
+  				for(var i = 0 ; i<this.data.length;i++ ){
+  					if(this.data[i].gender==="nam"){
+  						count+=1;
+  					}
+  				}
+  				document.write("The number of male is : " + count +"<br />");
+  			},
+
+  
+  			sortAge : function(){
+
+  				var listStudent = this.data;
+  				 for(var i = 0; i < listStudent.length-1; i++){
+  				 	for(var j = i+1 ; j < listStudent.length; j++ ){
+  				 		if(listStudent[i].age > listStudent[j].age){
+  				 			var temp = listStudent[i];
+  							listStudent[i] = listStudent[j];
+  				 			listStudent[j]= temp;
+  				 		}
+  					}
+  				 };
+
+  				for(var i = 0 ; i < listStudent.length;i++){
+  					document.write("<div>"+listStudent[i].name + " | " + listStudent[i].age + " | " + listStudent[i].gender + "</div>" );
+  				}
+
+  			},
+
+  			colorAge : function(){
+  				var listStudent = this.data;
+  				for(var i = 0; i < listStudent.length;i++){
+  					var obj = listStudent[i].name + listStudent[i].age + listStudent[i].gender;
+            var theP = document.createElement("p");
+            theP.innerHTML = obj;
+
+           // this.listStudent.push(item);
+            if(listStudent[i].age > 25){
+  						theP.style.color="blue";
+  						
+  					}
+
+  				};
+  				
+  			},
+
+  			// var theP = document.createElement("p");
+  			// theP.innerHTML=["listStudent[i]"]
+
+  		};
+
+  		document.write('<h4>Danh sách sinh viên ban đầu</h4>');
+		Student.viewStudent();
+
+		document.write('<b> DS sau khi thêm vào 5 sinh viên</b>');
+		Student.addStudent("bi",22,"nam");
+		Student.addStudent("b0",2,"nu");
+		Student.addStudent("mama",49,"nu");
+		Student.addStudent("baba",43,"nam");
+		Student.addStudent("babo",11,"nam");
+		Student.viewStudent();
+		Student.countMale();
+
+		document.write('<b> DS sau khi sắp xếp</b>');
+		Student.sortAge();
+		Student.colorAge();
+	
+
+       </script>
+<input type="button" onclick="Student.viewStudent()" value="Click me">
+
+
+
+
+
+
+       <!-- Sử dụng var với biến cục bộ.
+        <script language="javascript">
+           
+          // Biến toàn cục
+          var comment = "Global Variable ư";
+           
+          // Hàm có sử dụng biến toàn cục
+          function add_comment()
+          {
+             comment = "Local Variable";  // Khi thêm var vào biến Global sẽ không bị thay đổi
+             alert(comment);
+          }
+           
+          // Gọi fuction comment
+          add_comment();
+           
+          // In biến toàn cục
+          alert(comment);
+           
+        </script> -->
+    </body>
+</html>

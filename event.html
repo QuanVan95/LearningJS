@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Events in JS</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+<script type="text/javascript">
+
+	function show_result(){
+		var input = document.getElementById("message");
+		var div = document.getElementById("result");
+		div.innerHTML = input.value;
+	}
+	 // Gõ vào input hiện ra thẻ div 
+ 
+ function show_message() //check coppy
+      {
+        alert("Bạn đã copy thành công");
+      }
+ 
+ function tinh() //tính tổng 2 số nhập vào
+      {
+        // Lấy 3 ô input
+        var a = document.getElementById("a");
+        var b = document.getElementById("b");
+        var result = document.getElementById("result");
+         
+        // Tính tổng hai ô đầu tiên
+        var tong = parseInt(a.value) + parseInt(b.value);
+         
+        // Gán giá trị vào ô thứ ba
+        // Phải kiểm tra tổng hai số này có bị lỗi hay không
+        if (!isNaN(tong)){
+        	alert(tong);
+         var x = document.getElementById("resultx");
+         x.innerHTML = tong;
+         //div.innerHTML=tong;
+         var div = document.getElementById("resultx");
+		div.innerHTML = tong;
+		document.getElementById(resultx)=tong;
+         
+      }
+
+	</script>
+
+
+	<input type="text" id="message" onkeyup="show_result()" value=""/> <!-- Gõ vào input hiện ra thẻ div -->
+	<div id="result"></div>
+	<h3>Hãy copy dòng chữ dưới đây:</h3>
+    <div oncopy="show_message()">Chào mừng các bạn đến với website freetuts.net</div>
+    <!-- coppy xog hiện thông báo -->
+
+	a: <input type="text" id="a" value="" onkeyup="tinh()"/>
+    b: <input type="text" id="b" value="" onkeyup="tinh()"/>
+    Kết quả: <input type="text" id="resultx" value=""/>
+    <div id="resultx"></div>
+
+</body>
+</html>
